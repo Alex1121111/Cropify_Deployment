@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block body %}
+<br>
+<br>
+<br>
+<br>
+<div class="container1 d-flex justify-content-around">
+    <div class="cl1">
+        <h2 class="text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos.</h2>
+        <p class="text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus praesentium tempore sunt
+            saepe voluptatem, rerum ut est omnis nihil maiores in tempora officiis consectetur quis suscipit quod
+            facilis quaerat expedita quidem incidunt id! Consequatur.asdasd.</p>
+        <img class="img-leaf img-thumbnail" src="/static/Wireframe-Example.png"
+            alt="error pls contact the developer to fix this">
+    </div>
+    <div class="vertical"></div>
+
+    <div class="login text-light">
+        <form method="post" action="/">
+            <div class="mb-3">
+                <h2 class="heading-login text-center text-light">Login</h2>
+                <input type="number" maxlength="10" class="text-phnno form-control" name="number"
+                    placeholder="Enter your phone number">
+            </div>
+            <input type="submit" class="btn btn-success btn-login" value="Get OTP">
+        </form>
+        <div class="after-otp">
+            <div class="my-5 row">
+                <button type="button" class="btn btn-link resend-otp">Resent OTP</button>
+            </div>
+            <form action="/validate_otp" method="post">
+                <div class="mb-3 row">
+                    <input type="number" maxlength="6" name="otp" class="text-otp form-control" placeholder="Enter OTP">
+                </div>
+                <button class="btn btn-success btn-login">Login</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

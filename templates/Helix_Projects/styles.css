@@ -1,0 +1,42 @@
+*{
+margin:0;
+padding:0;
+}
+body{
+   
+}
+
+.BannerSlideShow{
+    width: 100%;
+    height: auto;
+  }
+  .slideShowTitle
+  {
+      text-align: center;
+  }
+  .cards {
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+  }
+
+  /* Style the button and place it in the middle of the container/image */
+
+  .imgcontainer .btn .btnb {
+    position: absolute;
+    top: 75%;
+    left: 40%;
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 12px 24px;
+
+    cursor: pointer;
+    border-radius: 50px;
+  }
+  
+  .imgcontainer .btn .btnb:hover {
+    color: red;
+    padding-right: 25px;
+  }
