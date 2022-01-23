@@ -5,13 +5,8 @@ from flask import *
 from gevent.pywsgi import WSGIServer
 from werkzeug.utils import secure_filename
 # from flask import Flask, redirect, url_for, request, render_template
-from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import load_model
-from tensorflow.keras.applications.vgg16 import preprocess_input, decode_predictions
-from tensorflow import keras
-import tensorflow as tf
 import matplotlib.image as mpimg
-import matplotlib.pyplot as plt
 # coding=utf-8
 import sys
 import os
@@ -68,7 +63,7 @@ def model_predict(img_path, model):
     x = cv2.resize(x, (150,150))
     #print(x.shape())"""
     #y_pred=model.predict_classes(np.expand_dims(x, axis=0))
-    y_pred = np.argmax(model.predict(np.expand_dims(x, axis=0),batch_size=16), axis=-1)
+    y_pred = np.argmax(model(np.expand_dims(x, axis=0)), axis=-1)
     return y_pred
 
 
