@@ -21,7 +21,7 @@ import cv2
 import numpy as np
 import pickle
 from PIL import Image
-#os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 # New imports
 
