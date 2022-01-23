@@ -68,7 +68,7 @@ def model_predict(img_path, model):
     x = cv2.resize(x, (150,150))
     #print(x.shape())"""
     #y_pred=model.predict_classes(np.expand_dims(x, axis=0))
-    y_pred = np.argmax(model.predict(np.expand_dims(x, axis=0)), axis=-1)
+    y_pred = np.argmax(model.predict(np.expand_dims(x, axis=0),batch_size=16), axis=-1)
     return y_pred
 
 
