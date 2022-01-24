@@ -101,22 +101,19 @@ def login():
 
 
 def getOTPapi(number):
-    try:
-        url = "https://www.fast2sms.com/dev/bulkV2"
+    url = "https://www.fast2sms.com/dev/bulkV2"
 
-        message = "Your OTP : " + str(generated_otp)
-        payload = f"sender_id=TXTIND&message={message}&route=v3&numbers={number}"
+    message = "Your OTP : " + str(generated_otp)
+    payload = f"sender_id=TXTIND&message={message}&route=v3&numbers={number}"
 
-        headers = {
-            'authorization': "FayAgUYBN0HciurDeTvdhsm4SIxtQ7O85jZRX6ElowP2WGkMVqMNvGYljBCTkqFWctdiygHx54bfSsZQ",
-            'Content-Type': "application/x-www-form-urlencoded",
-            'Cache-Control': "no-cache",
-        }
+    headers = {
+        'authorization': "FayAgUYBN0HciurDeTvdhsm4SIxtQ7O85jZRX6ElowP2WGkMVqMNvGYljBCTkqFWctdiygHx54bfSsZQ",
+        'Content-Type': "application/x-www-form-urlencoded",
+        'Cache-Control': "no-cache",
+    }
 
-        response = requests.request("POST", url, data=payload, headers=headers)
-    except:
-        print("otp error occured")
-        return redirect(url_for('index'))
+    response = requests.request("POST", url, data=payload, headers=headers)
+
 
 
     print(response.text)
