@@ -59,9 +59,11 @@ def model_predict(img_path):
     x = image.load_img(img_path,target_size=(150, 150))"""
     x = mpimg.imread(img_path)
     x = cv2.resize(x, (224, 224))
-    x = image.img_to_array(x)
+    #update 3x = image.img_to_array(x)
+    x = np.asarray(x)
+    x=np.float32(x)
     x = np.expand_dims(x, axis=0)
-    x/=255.0    
+    x=np.divide(x,255.0)   
     # path to existing local file
     #update 3 x = np.asarray(x) / 255
     # plt.imshow(x)
