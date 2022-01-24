@@ -7,12 +7,10 @@ google-pasta==0.2.0
 grpcio==1.42.0
 gunicorn==20.1.0
 itsdangerous==2.0.1
-keras==2.7.0
 matplotlib==3.5.0
 numpy==1.21.4
 oauthlib==3.1.1
 opencv-python==4.5.4.60
 Pillow==8.4.0
-scikit-image==0.19.1
 scipy==1.7.3
 tflite-runtime
