@@ -4,8 +4,9 @@ import random
 from flask import *
 from gevent.pywsgi import WSGIServer
 from werkzeug.utils import secure_filename
+from tensorflow.keras.preprocessing import image
 # from flask import Flask, redirect, url_for, request, render_template
-from tensorflow.keras.models import load_model
+import tensorflow as tf
 import matplotlib.image as mpimg
 # coding=utf-8
 import sys
@@ -27,10 +28,12 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 app = Flask(__name__)
 
 # Model saved with Keras model.save()
+#update3
 MODEL_PATH = 'MobileNet_v2.h5'
 
 # Load your trained model
-model = load_model(MODEL_PATH)
+#update3
+#model = load_model(MODEL_PATH)
 # Necessary
 # print('Model loaded. Start serving...')
 
@@ -48,23 +51,38 @@ def generateOTP():
 
 generated_otp = generateOTP()  # OTP
 
-
-def model_predict(img_path, model):
+#update3
+#def model_predict(img_path, model):
+def model_predict(img_path):
     # , target_size=(150,150)
     """
     x = image.load_img(img_path,target_size=(150, 150))"""
     x = mpimg.imread(img_path)
     x = cv2.resize(x, (224, 224))
+    x = image.img_to_array(x)
+    x = np.expand_dims(x, axis=0)
+    x/=255.0    
     # path to existing local file
-    x = np.asarray(x) / 255
+    #update 3 x = np.asarray(x) / 255
     # plt.imshow(x)
     """
     import cv2
     x = cv2.resize(x, (150,150))
     #print(x.shape())"""
     #y_pred=model.predict_classes(np.expand_dims(x, axis=0))
-    y_pred = np.argmax(model.predict(np.expand_dims(x, axis=0),batch_size=8), axis=-1)
-    return y_pred
+    #update3
+    #y_pred = np.argmax(model.predict(np.expand_dims(x, axis=0),batch_size=8), axis=-1)
+    interpreter = tf.lite.Interpreter(model_path="model.tflite")
+    interpreter.allocate_tensors()
+    input_details = interpreter.get_input_details()
+    output_details = interpreter.get_output_details()
+    interpreter.set_tensor(input_details[0]['index'], x)
+    interpreter.invoke()
+    output_data = interpreter.get_tensor(output_details[0]['index'])
+    ind = np.argmax(output_data[0])
+    return ind 
+    #update3
+    #return y_pred
 
 
 @app.route('/', methods=["GET", "POST"])  # Login - with OTP auth
@@ -134,7 +152,8 @@ def upload():
         f.save(file_path)
 
         # Make prediction
-        preds = model_predict(file_path, model)
+        #update3
+        preds = model_predict(file_path)
 
         # Process your result for human
         # pred_class = preds.argmax(axis=-1)            # Simple argmax
@@ -145,7 +164,7 @@ def upload():
             12: "Pepper bell Bacterial_spot", 13: "Pepper bell healthy", 14: "Potato Early blight", 16: "Potato healthy", 15: "Potato Late blight", 18: "Rice Bacterial leaf blight", 19: "Rice Leaf smut", 17: "RiceBrown spot", 20: "Tomato Bacterial spot", 21: "Tomato Early blight", 29: "Tomato healthy",
             22: "Tomato Late blight", 23: "Tomato Leaf Mold", 24: "Tomato Septoria leaf spot", 25: "Tomato Spider mites Two spotted spider mite", 26: "Tomato Target_Spot", 28: "Tomato Tomato mosaic virus",27:"Tomato Tomato Yellow Leaf Curl Virus",30:"Wheat Healthy",31:"Wheat septoria",32:"Wheat stripe rust"
         }
-    return(dict[preds[0]])
+    return(dict[preds])
     return None
 
 
