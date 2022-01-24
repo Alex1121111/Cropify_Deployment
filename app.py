@@ -115,7 +115,9 @@ def getOTPapi(number):
 
         response = requests.request("POST", url, data=payload, headers=headers)
     except:
+        print("otp error occured")
         return redirect(url_for('index'))
+
 
     print(response.text)
 
