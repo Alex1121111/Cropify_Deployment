@@ -6,7 +6,8 @@ from gevent.pywsgi import WSGIServer
 from werkzeug.utils import secure_filename
 #from tensorflow.keras.preprocessing import image
 # from flask import Flask, redirect, url_for, request, render_template
-import tensorflow as tf
+#import tensorflow as tf
+from tflite_runtime.interpreter import Interpreter
 import matplotlib.image as mpimg
 # coding=utf-8
 import sys
@@ -74,7 +75,7 @@ def model_predict(img_path):
     #y_pred=model.predict_classes(np.expand_dims(x, axis=0))
     #update3
     #y_pred = np.argmax(model.predict(np.expand_dims(x, axis=0),batch_size=8), axis=-1)
-    interpreter = tf.lite.Interpreter(model_path="model.tflite")
+    interpreter =Interpreter(model_path="model.tflite")
     interpreter.allocate_tensors()
     input_details = interpreter.get_input_details()
     output_details = interpreter.get_output_details()
