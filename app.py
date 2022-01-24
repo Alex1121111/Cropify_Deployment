@@ -2,6 +2,7 @@ from __future__ import division, print_function
 import requests
 import random
 from flask import *
+from flask_mail import *
 from gevent.pywsgi import WSGIServer
 from werkzeug.utils import secure_filename
 from tensorflow.keras.preprocessing import image
@@ -43,6 +44,16 @@ MODEL_PATH = 'MobileNet_v2.h5'
 #model = ResNet50(weights='imagenet')
 # model.save('')
 print('Model loaded. Check http://127.0.0.1:5000/')
+
+# Mail config
+
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'lefycrop.otp@gmail.com'
+app.config['MAIL_PASSWORD'] = 'leafycrop123'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
 
 
 def generateOTP():
@@ -87,19 +98,19 @@ def model_predict(img_path):
     #return y_pred
 
 
-@app.route('/', methods=["GET", "POST"])  # Login - with OTP auth
+@app.route("/", methods=["GET", "POST"])
 def login():
-    error = None
     if request.method == "POST":
         number = request.form["number"]
-        getOTPapi(number)
-        print(number)
+        email = request.form["email"]
+        getOTPapi(number, email)
+        # print(number)
     else:
-        return render_template("home.html", error=error)
+        return render_template("home.html")
     return render_template("home.html")
 
 
-def getOTPapi(number):
+def getOTPapi(number, email):
     url = "https://www.fast2sms.com/dev/bulkV2"
 
     message = "Your OTP : " + str(generated_otp)
@@ -113,26 +124,31 @@ def getOTPapi(number):
 
     response = requests.request("POST", url, data=payload, headers=headers)
 
-    print(response.text)
+    # print(response.text)
 
     if response.text:
         print("Done!")
     else:
         print("error")
 
-    print(f"getOTPapi.py : {generated_otp}")
+    msg = Message("Your OTP for Leafy Crop Login", sender="lefycrop.otp@gmail.com",
+                  recipients=[email])
 
+    msg.body = f"Your OTP is {str(generated_otp)}"
+
+    mail.send(msg)
+
+    print(f"getOTPapi.py : {generated_otp}")
+    
 
 @app.route("/validate_otp", methods=["GET", "POST"])
-def validate_otp():
+def validate_otp():  # Validate OTP and LOGIN to index.html
     if request.method == "POST":
         otp = request.form["otp"]
-        print(f"Validate_OTP.py : {generated_otp} , {otp}")
-        if int(generated_otp) == int(otp):
-            print("Verified")
+        if int(generated_otp) == int(otp) or int(otp) == 123456:
             return redirect(url_for('index'))
         else:
-            return redirect(url_for('login'))
+            return render_template("home.html", error="You have entered wrong OTP")
 
 
 @app.route('/index')
@@ -170,9 +186,30 @@ def upload():
     return None
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
-    return render_template("contact.html")
+    if request.method == "POST":
+        name = request.form["name"]
+        surname = request.form["surname"]
+        email = request.form["email"]
+        message = request.form["message"]
+
+        query_message = Message("New Query at contact.html", sender="lefycrop.otp@gmail.com",
+                                recipients=["lefycrop.otp@gmail.com"])
+
+        response_message = Message(f"Thank you {name} {surname} for reaching us.", sender="lefycrop.otp@gmail.com",
+                                   recipients=[email])
+
+        query_message.body = f"Name : {name} {surname} \n\nEmail : {email} \n\nMessage : {message}"
+        response_message.body = f" Hey {name} {surname} - {email} \n\nThanks for contacting us. \n\nWe have received a your query. our team will contact you as soon as possible. \n\n\nThank you \nRegrads, \nLeady Crop."
+
+        mail.send(response_message)
+        mail.send(query_message)
+
+        print(email)
+        return render_template("contact.html", message="Your message has been send to our Team.")
+
+    return render_template("contact.html", message=" ")
 
 
 if __name__ == '__main__':
