@@ -201,7 +201,7 @@ def contact():
                                    recipients=[email])
 
         query_message.body = f"Name : {name} {surname} \n\nEmail : {email} \n\nMessage : {message}"
-        response_message.body = f" Hey {name} {surname} - {email} \n\nThanks for contacting us. \n\nWe have received a your query. our team will contact you as soon as possible. \n\n\nThanks & Regards, \nLeady Crop."
+        response_message.body = f" Hey {name} {surname} - {email} \n\nThanks for contacting us. \n\nWe have received a your query. our team will contact you as soon as possible. \n\n\nThanks & Regards, \nLeafy Crop."
 
         mail.send(response_message)
         mail.send(query_message)
