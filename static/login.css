@@ -6,27 +6,26 @@
 .cl1,
 .imgsec {
   /* background: #000; */
-  width: 31vw;
-  margin: 50px 0;
+  width: 38vw;
+  margin-top: 50px;
   height: 100%;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   transition: all 0.3s ease-in-out;
 }
 
 .login {
-  width: 31vw;
-  margin: 50px 0;
+  width: 28vw;
+  margin-top: 100px;
   height: 100%;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
 }
-
 
 .img-leaf {
   height: 50%;
@@ -35,10 +34,12 @@
 
 .vertical {
   border-left: 2px solid white;
-  height: 600px;
+  height: 480px;
   position: absolute;
   left: 53%;
   opacity: 0.6;
+  margin-top: 70px;
+  margin-top: 8em;
 }
 
 .heading-login {
@@ -56,24 +57,40 @@
 
 .text-phnno,
 .text-otp {
-  border-radius: 50px;
-  width: 80%;
+  border-radius: 20px;
+  width: 27vw;
   margin-top: 17px;
-  margin-left: 55px;
+  margin-left: 50px;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 33px;
+}
+
+.text-heading {
+  width: 38vw;
+}
+
+.text-info {
+  font-size: 1.2em;
+  font-style: oblique;
+  width: 38vw;
+  margin-top: 20px;
+}
+
+.text-otp {
+  margin-top: 77px;
+  margin-left: 60px;
+}
+
+.text-error {
+  margin-top: 40px;
+  margin-left: 200px;
+  text-shadow: 2px 2px 8px #fff;
 }
 
 .btn-login {
-  width: 65%;
+  width: 67%;
   border-radius: 50px;
-  margin: 0 106px;
-}
-
-.resend-otp {
-  color: white;
-  text-decoration: none;
-  margin: -20px 0px;
+  margin: 0 112px;
 }
 
 .img-upload {
@@ -108,10 +125,15 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.newl{
+.newl {
   width: 50px;
   height: 50px;
-  margin:8px;
+  margin: 8px;
+}
+
+.input-image {
+  width: 32vw;
+  margin-left: 60px;
 }
 /* input[type="file"] {
   display: none;
@@ -135,10 +157,10 @@
     transform: rotate(360deg);
   }
 } */
-.loader{
-  background-color:white;
-  width:50px;
-  height:50px;
+.loader {
+  background-color: white;
+  width: 50px;
+  height: 50px;
 }
 
 .img-preview {
