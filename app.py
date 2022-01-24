@@ -115,7 +115,7 @@ def getOTPapi(number):
 
         response = requests.request("POST", url, data=payload, headers=headers)
     except:
-        return redirect(url_for('index'))
+        return render_template('index.html')
 
     print(response.text)
 
