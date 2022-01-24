@@ -5,7 +5,7 @@ from flask import *
 from flask_mail import *
 from gevent.pywsgi import WSGIServer
 from werkzeug.utils import secure_filename
-from tensorflow.keras.preprocessing import image
+#from tensorflow.keras.preprocessing import image
 # from flask import Flask, redirect, url_for, request, render_template
 import tensorflow as tf
 import matplotlib.image as mpimg
