@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block body %}
+<br>
+<br>
+<div class="container1 d-flex justify-content-around">
+    <div class="cl1">
+        <h2 class="text-light text-heading">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos.</h2>
+        <p class="text-light text-info">Crop diseases are a major threat to food security, but their rapid
+            identification remains
+            difficult in many parts of the world due to the lack of the necessary infrastructure. This project aims to
+            build a deep learning model and prepare the model for deployment and deploy the model on AWS platform
+            allowing farmers to easily make use of latest technologies to diagnose crop disease.
+        </p>
+        <img class="img-leaf img-thumbnail" src="/static/Wireframe-Example.png"
+            alt="error pls contact the developer to fix this">
+    </div>
+    <div class="vertical"></div>
+
+    <div class="login text-light">
+        <form method="post" action="/">
+            <div class="mb-3">
+                <h2 class="heading-login text-center text-light">Login</h2>
+                <input type="number" maxlength="10" class="text-phnno form-control" name="number" required="required"
+                    data-error="Phone number is required." placeholder=" Enter your phone number">
+                <input type="email" class="text-phnno form-control" name="email"
+                    placeholder="Enter your email ID (if any)">
+            </div>
+            <input type="submit" class="btn btn-success btn-login" value="Get OTP">
+        </form>
+        <div class="after-otp">
+            <form action="/validate_otp" method="post">
+                <div class="mb-3 row">
+                    <input type="number" maxlength="6" name="otp" class="text-otp form-control" placeholder="Enter OTP">
+                </div>
+                <button class="btn btn-success btn-login">Login</button>
+            </form>
+        </div>
+        <p class="text-error text-danger">{{error}}</p>
+    </div>
+
+</div>
+
+
+{% endblock %}
