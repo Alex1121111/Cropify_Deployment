@@ -1,6 +1,6 @@
 .container1 {
   width: 98vw;
-  height: 64vh;
+  height: 65vh;
 }
 
 .cl1,
@@ -30,6 +30,7 @@
 .img-leaf {
   height: 50%;
   margin-top: 20px;
+  width: 35vw;
 }
 
 .vertical {
@@ -38,12 +39,11 @@
   position: absolute;
   left: 53%;
   opacity: 0.6;
-  margin-top: 70px;
-  margin-top: 8em;
+  margin-top: 5em;
 }
 
 .heading-login {
-  margin: 23px 0;
+  margin: -50px 0 0;
   font-size: 41px;
   text-transform: uppercase;
 }
@@ -57,11 +57,11 @@
 
 .text-phnno,
 .text-otp {
-  border-radius: 20px;
+  border-radius: 83px;
   width: 27vw;
   margin-top: 17px;
   margin-left: 50px;
-  padding: 20px;
+  padding: 10px 30px;
   margin-bottom: 33px;
 }
 
@@ -83,8 +83,9 @@
 
 .text-error {
   margin-top: 40px;
-  margin-left: 200px;
-  text-shadow: 2px 2px 8px #fff;
+  margin-left: 140px;
+  font-weight: 900;
+  font-size: 20px;
 }
 
 .btn-login {

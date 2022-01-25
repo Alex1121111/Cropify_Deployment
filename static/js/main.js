@@ -3,7 +3,7 @@ $(document).ready(function () {
   $(".image-section").hide();
   $(".newl").hide();
   $("#result").hide();
- //$(".after-otp").hide();
+  //$(".after-otp").hide();
 
   // Upload Preview
   function readURL(input) {
@@ -23,7 +23,7 @@ $(document).ready(function () {
   }
 
   //$(".btn-login").click(function validate_OTP() {
-    //$(".after-otp").show(2000)
+  //$(".after-otp").show(2000)
   //});
 
   $(".imageUpload").change(function () {
@@ -32,7 +32,6 @@ $(document).ready(function () {
     $("#btn-predict").css("margin-left", "240px");
     $("#result").css("margin-left", "150px");
     $("#result").css("width", "400px");
-    $(".newl").css("margin-left", "240px");
     $("#btn-predict").show();
     $("#result").text("");
     $("#result").hide();
@@ -68,6 +67,6 @@ $(document).ready(function () {
 });
 
 //$(document).on("submit", "#login-number", function (e) {
- // e.preventDefault();
- // console.log("Hey I am triggered");
+// e.preventDefault();
+// console.log("Hey I am triggered");
 //});

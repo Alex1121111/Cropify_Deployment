@@ -10,7 +10,7 @@
       deep learning model and prepare the model for deployment and deploy the model on AWS platform allowing farmers to
       easily make use of latest technologies to diagnose crop disease.
     </p>
-    <img class="img-leaf img-thumbnail" src="/static/Wireframe-Example.jpg"
+    <img class="img-leaf img-thumbnail" src="/static/Wireframe-Example.png"
       alt="error pls contact the developer to fix this">
   </div>
   <div class="vertical"></div>
@@ -18,7 +18,7 @@
   <div class="imgsec">
     <h3 class="title text-light">Upload your image</h3>
     <form id="upload-file" method="post" enctype="multipart/form-data">
-      <div class="input-group mb-3">
+      <div class="input-group file-input mb-3">
         <input type="file" name="file" class="input-image imageUpload form-control" id="inputGroupFile02"
           accept=".png, .jpg, .jpeg">
       </div>
@@ -38,14 +38,14 @@
 
         </div>
       </div>
-      <div>
+      <div class="btn-predict">
         <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
       </div>
     </div>
 
     <!--<div class="loader" style="display:none;">-->
     <div class="newl">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      <svg xmlns="http://www.w3.org/2000/svg" class="loading" xmlns:xlink="http://www.w3.org/1999/xlink"
         style="margin: auto; background: none; display: block; shape-rendering: auto;" width="84px" height="84px"
         viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
         <rect x="19" y="19" width="20" height="20" fill="#30c494">
@@ -84,9 +84,9 @@
       </svg>
     </div>
 
-    <h3 id="result" style="width:200px; color:white;">
-      <span> </span>
-    </h3>
+    <span class="result">
+      <h3 id="result" style="width:200px; color:white;">Hey iam a result</h3>
+    </span>
 
   </div>
 </div>

@@ -1,0 +1,95 @@
+@media screen and (min-width: 414px) {
+  .logo {
+    margin-left: -50px;
+    font-size: 20px;
+    width: 100px;
+  }
+
+  .contact {
+    padding: 5px;
+    margin-left: 74px;
+    width: 100px;
+    font-size: 18px;
+  }
+
+  .cl1,
+  .vertical {
+    display: none;
+  }
+  .container1 {
+    margin-left: -110px;
+    margin-top: -45px;
+  }
+
+  .login {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .heading-login {
+    margin-left: 25px;
+  }
+
+  .text-phnno,
+  .text-otp {
+    width: 70vw;
+    margin-left: 27px;
+  }
+
+  .btn-login {
+    width: 150px;
+    margin: 0 92px;
+  }
+
+  .text-error {
+    margin-left: 10px;
+    width: 350px;
+    font-size: 13px;
+    margin-bottom: -30px;
+  }
+
+  .imgsec {
+    margin-left: 165px;
+  }
+
+  .title {
+    width: 237px;
+    font-size: 22px;
+  }
+
+  .file-input {
+    width: 417px;
+  }
+
+  .img-upload,
+  #img-preview div {
+    width: 380px;
+  }
+  .textimg {
+    font-size: 40px;
+    padding: 145px 0;
+  }
+
+  #img-preview,
+  .img-preview {
+    height: 360px;
+    width: 380px;
+  }
+
+  .btn-predict {
+    margin-left: -50px;
+  }
+
+  .loading {
+    margin-left: -100px;
+  }
+
+  .result {
+    margin-left: 90px;
+    margin-top: 40px;
+    margin-bottom: -50px;
+  }
+}

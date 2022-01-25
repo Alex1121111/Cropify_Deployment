@@ -26,4 +26,17 @@ label {
 
 .card {
   margin-left: 10px;
+  width: 60vw;
+}
+
+.card-body {
+  width: 60vw;
+}
+
+.row-card {
+  margin-right: 60vw;
+}
+
+.form-text-field {
+  margin-bottom: -40px;
 }
