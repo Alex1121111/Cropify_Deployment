@@ -125,7 +125,7 @@ def getOTPapi(number, email):
     # print(response.text)
 
     if response.text:
-        print("Done!")
+        print("Done! Thanks to Alex")
     else:
         print("error")
 
