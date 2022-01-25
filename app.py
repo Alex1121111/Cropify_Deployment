@@ -124,19 +124,12 @@ def getOTPapi(number, email):
 
     # print(response.text)
 
-    if response.text:
-        print("Done! Thanks to Alex")
-    else:
-        print("error")
-
     msg = Message("Your OTP for Leafy Crop Login", sender="lefycrop.otp@gmail.com",
                   recipients=[email])
 
     msg.body = f"Your OTP is {str(generated_otp)}"
 
     mail.send(msg)
-
-    print(f"getOTPapi.py : {generated_otp}")
 
 
 @app.route("/validate_otp", methods=["GET", "POST"])
@@ -203,7 +196,6 @@ def contact():
         mail.send(response_message)
         mail.send(query_message)
 
-        print(email)
         return render_template("contact.html", message="Your message has been send to our Team.")
 
     return render_template("contact.html", message=" ")
