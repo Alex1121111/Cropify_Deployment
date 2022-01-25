@@ -1,4 +1,8 @@
 @media screen and (max-width: 768px) {
+  .bg-img {
+    position: fixed;
+  }
+
   .logo {
     margin-left: -50px;
     font-size: 20px;
