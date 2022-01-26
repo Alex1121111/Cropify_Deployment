@@ -132,6 +132,8 @@ def getOTPapi(number, email):
     mail.send(msg)
 
 
+
+
 @app.route("/validate_otp", methods=["GET", "POST"])
 def validate_otp():  # Validate OTP and LOGIN to index.html
     if request.method == "POST":
