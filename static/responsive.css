@@ -44,6 +44,11 @@
     margin-left: 27px;
   }
 
+  .responsive-otp {
+    margin-left: 3px;
+    width: 70vw;
+  }
+
   .btn-login {
     width: 150px;
     margin: 0 92px;
