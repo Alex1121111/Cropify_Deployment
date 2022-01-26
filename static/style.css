@@ -11,6 +11,7 @@
   top: 0;
   width: 100%;
   height: 100%;
+  position: fixed;
 }
 
 .content {
@@ -81,11 +82,10 @@ a {
   color: #fff;
 }
 
-.img-leaf
-{
-    background-color: transparent;
-    border: transparent;
+.img-leaf {
+  background-color: transparent;
+  border: transparent;
 }
-.textimg{
-  color:#AEB7B5;
+.textimg {
+  color: #aeb7b5;
 }
